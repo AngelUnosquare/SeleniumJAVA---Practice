@@ -16,14 +16,26 @@ public class test {
         driver.manage().window().maximize();
     
         
-        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
-        WebElement searchButton = driver.findElement(By.id("nav-search-submit-button"));
+        try {
+        	 WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+             searchBox.sendKeys(querySearch);
+		} catch (Exception e) {
+			System.out.println("No se encontró el elemento de busqueda");
+		}
         
-        searchBox.sendKeys(querySearch);
-        searchButton.click();
+        try {
+            WebElement searchButton = driver.findElement(By.id("nav-search-submit-button"));
+            searchButton.click();
+		} catch (Exception e) {
+			System.out.println("No se encontró el elemento para hacer click");
+		}
         
-        WebElement firstResult = driver.findElement(By.tagName("data-csa-c-pos"));
-        firstResult.click();
-	}
+        try {
+            WebElement firstResult = driver.findElement(By.tagName("data-csa-c-pos"));
+            firstResult.click();
+        } catch (Exception e) {
+        	System.out.println(e + " No se encontró el primer resultado");
+        }
 
+  }
 }
