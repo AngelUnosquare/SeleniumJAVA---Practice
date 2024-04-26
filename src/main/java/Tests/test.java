@@ -31,7 +31,7 @@ public class test {
 		}
         
         try {
-            WebElement firstResult = driver.findElement(By.tagName("data-csa-c-pos"));
+            WebElement firstResult = driver.findElement(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal'][0]"));
             firstResult.click();
         } catch (Exception e) {
         	System.out.println(e + " No se encontró el primer resultado");
