@@ -1,5 +1,7 @@
 package Tests;
 
+import java.util.List;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -31,8 +33,8 @@ public class test {
 		}
         
         try {
-            WebElement firstResult = driver.findElement(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal'][0]"));
-            firstResult.click();
+            List<WebElement> firstResult = driver.findElements(By.className("a-size-base-plus"));
+            firstResult.get(0).click();
         } catch (Exception e) {
         	System.out.println(e + " No se encontró el primer resultado");
         }
